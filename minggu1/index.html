@@ -7,29 +7,81 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="brand">Alicia Agatha</a>
-            <nav class="main-nav" aria-label="Navigasi Utama">
-                <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="portofolio.html">Portofolio</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="top-screen">
+        <header class="site-header">
+            <div class="container">
+                <a href="index.html" class="brand">Welcome to my Portofolio</a>
+                <nav class="main-nav" aria-label="Navigasi Utama">
+                    <ul>
+                        <li><a href="index.html" aria-current="page">Home</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-    <main>
         <section class="hero">
             <div class="container">
                 <div class="hero-photo-frame">
                     <img
-                    src="img/bg.jpeg"
+                    src="img/bg.jpg"
+                    alt="Foto profil"
+                    class="hero-photo"
                     />
+                </div>
+                <div class="hero-text">
+                    <p class="hero-greeting">Hi, I Am</p>
+                    <h1>Alicia Agatha Nathaniela T.</h1>
+                    <p class="hero-role">Web Developer &amp; Web Fundamental's Student</p>
+                    <p class="hero-bio">
+                        Halo! Saya adalah mahasiswa Rekayasa Keamanan Siber dari Politeknik Negeri Batam.
+                        Saya sedang belajar membangun website dari dasar dengan menggunakan HTML dan CSS.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+    <main>
+        <section class="alt" aria-labelledby="skills-heading">
+            <div class="container">
+                <h2 id="skills-heading">Keahlian Teknis</h2>
+                <ul class="skill-list">
+                    <li class="skill-badge">HTML<li>
+                    <li class="skill-badge">CSS</li>
+                    <li class="skill-badge">Git &amp; GitHub</li>
+                </ul>
+            </div>
+        </section>
+
+        <section aria-labelledby="history-heading">
+            <div class="container">
+                <h2 id="history-heading">Pendidikan &amp; Pengalaman</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023 - Sekarang</div>
+                        <div class="timeline-body">
+                            <h3>Politeknik Negeri Batam</h3>
+                            <p>Program Studi Rekayasa Keamanan Siber | Semester 3</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-body">
+                            <h3>Project Based Learning selama 1 Tahun</h3>
+                            <p>Deskripsikan pengalaman kontribusi di PBL selama 1 tahun ini.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Alicia Agatha Nathaniela Telaumbanua. Diciptakan sebagai bentuk tugas Web Fundamental.</p>
+        </div>
+    </footer>
 </body>
 </html>
