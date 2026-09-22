@@ -7,17 +7,14 @@
     --color-yellow: #f6e66c;
     --color-white: #ffffff;
     --color-black: #141414;
-
     --tint-purple: #ece4fb;
     --tint-pink: #fde8f2;
 
     --border: 2px solid var(--color-black);
     --radius-lg: 28px;
     --radius-pill: 999px;
-
     --font-display: 'Instrument Serif', serif;
     --font-sans: 'Space Grotesk', sans-serif;
-
     --max-width: 1080px;
 }
 

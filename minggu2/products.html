@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter Template | OatToks Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Manrope', 'sans-serif'] } } } }</script>
+  <style type="text/tailwindcss">
+    .ic { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-link { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-teal-100/80 transition hover:bg-teal-900 hover:text-white; }
+    .nav-link.active { @apply bg-teal-900 text-white; box-shadow: inset 3px 0 0 #fcd34d; }
+  </style>
+</head>
+<body class="bg-stone-100 font-sans text-stone-700 antialiased">
+  <div class="flex min-h-screen">
+
+    <!-- NAVIGASI -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 flex w-64 -translate-x-full flex-col bg-teal-950 transition-transform lg:static lg:translate-x-0">
+      <div class="flex h-16 items-center gap-3 px-6 text-lg font-extrabold text-white">
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-amber-300 text-teal-950">O</span> OatToks
+      </div>
+      <nav class="flex-1 space-y-1 px-4 py-4">
+        <a href="dashboard.html" class="nav-link"><svg class="ic" viewBox="0 0 24 24"><path d="M4 4h6v7H4zM14 4h6v4h-6zM14 12h6v8h-6zM4 15h6v5H4z"/></svg>Dashboard</a>
+        <a href="products.html" class="nav-link"><svg class="ic" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>Products</a>
+        <a href="#" class="nav-link"><svg class="ic" viewBox="0 0 24 24"><path d="M16 19v-1a4 4 0 00-4-4H8a4 4 0 00-4 4v1M10 11a3 3 0 100-6 3 3 0 000 6zM20 19v-1a4 4 0 00-3-3.9M15 5.1a3 3 0 010 5.8"/></svg>Users</a>
+        <a href="#" class="nav-link"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M16 4v6M8 14v6"/></svg>Setting</a>
+      </nav>
+      <div class="border-t border-teal-900 p-4">
+        <a href="index.html" class="nav-link hover:!bg-red-500/20 hover:!text-red-200"><svg class="ic" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 012 2v12a2 2 0 01-2 2h-3M10 16l-4-4 4-4M6 12h10"/></svg>Logout</a>
+      </div>
+    </aside>
+    <div id="overlay" class="fixed inset-0 z-20 hidden bg-black/40 lg:hidden"></div>
+
+    <div class="flex min-w-0 flex-1 flex-col">
+      <!-- HEADER -->
+      <header class="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-stone-200 bg-white/90 px-4 backdrop-blur sm:px-6">
+        <button id="menu-btn" class="rounded-lg p-2 hover:bg-stone-100 lg:hidden" aria-label="Buka menu"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <p class="hidden text-sm text-stone-500 lg:block">Panel admin toko tanaman</p>
+        <div class="flex items-center gap-3">
+          <div class="text-right text-sm leading-tight"><p class="font-bold text-stone-800">Agatha Alicia</p><p class="text-xs text-stone-500">Admin toko</p></div>
+          <span class="grid h-9 w-9 place-items-center rounded-full bg-teal-800 text-sm font-bold text-white">AA</span>
+        </div>
+      </header>
+
+      <!-- KONTEN UTAMA -->
+      <main class="flex-1 p-4 sm:p-6 lg:p-8">
+        <!-- KONTEN-MULAI -->
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 class="text-2xl font-extrabold text-stone-900">Manajemen Produk</h1>
+            <p class="mt-1 text-stone-500">Kelola daftar produk dan stok yang dijual di toko.</p>
+          </div>
+          <a href="add-produk.html" class="inline-flex items-center gap-2 rounded-lg bg-teal-800 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add Product
+          </a>
+        </div>
+
+        <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+          <table class="w-full min-w-[32rem] text-left text-sm">
+            <thead class="bg-stone-50 text-stone-500">
+              <tr>
+                <th class="px-5 py-3 font-semibold">No</th>
+                <th class="px-5 py-3 font-semibold">Name</th>
+                <th class="px-5 py-3 font-semibold">Stock</th>
+                <th class="px-5 py-3 font-semibold">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-stone-100 hover:bg-stone-50">
+                <td class="px-5 py-3.5 text-stone-500">1</td>
+                <td class="px-5 py-3.5 font-semibold text-stone-800">Monstera Deliciosa</td>
+                <td class="px-5 py-3.5"><div class="flex items-center gap-2"><span class="font-semibold text-stone-800 tabular-nums">45</span></div></td>
+                <td class="px-5 py-3.5">
+                  <div class="flex gap-2">
+                    <a href="edit-produk.html" class="rounded-lg bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-800 transition hover:bg-teal-100">Edit</a>
+                    <button type="button" onclick="if (confirm('Hapus produk ini?')) this.closest('tr').remove()" class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 transition hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-t border-stone-100 hover:bg-stone-50">
+                <td class="px-5 py-3.5 text-stone-500">2</td>
+                <td class="px-5 py-3.5 font-semibold text-stone-800">Sukulen Mini Aneka Jenis</td>
+                <td class="px-5 py-3.5"><div class="flex items-center gap-2"><span class="font-semibold text-stone-800 tabular-nums">120</span></div></td>
+                <td class="px-5 py-3.5">
+                  <div class="flex gap-2">
+                    <a href="edit-produk.html" class="rounded-lg bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-800 transition hover:bg-teal-100">Edit</a>
+                    <button type="button" onclick="if (confirm('Hapus produk ini?')) this.closest('tr').remove()" class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 transition hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-t border-stone-100 hover:bg-stone-50">
+                <td class="px-5 py-3.5 text-stone-500">3</td>
+                <td class="px-5 py-3.5 font-semibold text-stone-800">Pot Keramik Bulat</td>
+                <td class="px-5 py-3.5"><div class="flex items-center gap-2"><span class="font-semibold text-stone-800 tabular-nums">8</span><span class="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-0.5 text-xs font-bold text-red-700"><svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9L2.4 18a2 2 0 001.7 3h15.8a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Menipis</span></div></td>
+                <td class="px-5 py-3.5">
+                  <div class="flex gap-2">
+                    <a href="edit-produk.html" class="rounded-lg bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-800 transition hover:bg-teal-100">Edit</a>
+                    <button type="button" onclick="if (confirm('Hapus produk ini?')) this.closest('tr').remove()" class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 transition hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-t border-stone-100 hover:bg-stone-50">
+                <td class="px-5 py-3.5 text-stone-500">4</td>
+                <td class="px-5 py-3.5 font-semibold text-stone-800">Pupuk Organik Cair 500ml</td>
+                <td class="px-5 py-3.5"><div class="flex items-center gap-2"><span class="font-semibold text-stone-800 tabular-nums">32</span></div></td>
+                <td class="px-5 py-3.5">
+                  <div class="flex gap-2">
+                    <a href="edit-produk.html" class="rounded-lg bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-800 transition hover:bg-teal-100">Edit</a>
+                    <button type="button" onclick="if (confirm('Hapus produk ini?')) this.closest('tr').remove()" class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 transition hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-t border-stone-100 hover:bg-stone-50">
+                <td class="px-5 py-3.5 text-stone-500">5</td>
+                <td class="px-5 py-3.5 font-semibold text-stone-800">Media Tanam Cocopeat</td>
+                <td class="px-5 py-3.5"><div class="flex items-center gap-2"><span class="font-semibold text-stone-800 tabular-nums">5</span><span class="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-0.5 text-xs font-bold text-red-700"><svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9L2.4 18a2 2 0 001.7 3h15.8a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Menipis</span></div></td>
+                <td class="px-5 py-3.5">
+                  <div class="flex gap-2">
+                    <a href="edit-produk.html" class="rounded-lg bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-800 transition hover:bg-teal-100">Edit</a>
+                    <button type="button" onclick="if (confirm('Hapus produk ini?')) this.closest('tr').remove()" class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 transition hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-t border-stone-100 hover:bg-stone-50">
+                <td class="px-5 py-3.5 text-stone-500">6</td>
+                <td class="px-5 py-3.5 font-semibold text-stone-800">Gunting Stek Tanaman</td>
+                <td class="px-5 py-3.5"><div class="flex items-center gap-2"><span class="font-semibold text-stone-800 tabular-nums">18</span></div></td>
+                <td class="px-5 py-3.5">
+                  <div class="flex gap-2">
+                    <a href="edit-produk.html" class="rounded-lg bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-800 transition hover:bg-teal-100">Edit</a>
+                    <button type="button" onclick="if (confirm('Hapus produk ini?')) this.closest('tr').remove()" class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 transition hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- KONTEN-SELESAI -->
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="border-t border-stone-200 px-4 py-4 text-center text-sm text-stone-500 sm:px-6">&copy; 2026 OatToks. Dibuat untuk tugas lab TailwindCSS.</footer>
+    </div>
+  </div>
+
+  <script>
+    const sb = document.getElementById('sidebar'), ov = document.getElementById('overlay');
+    const toggle = () => { sb.classList.toggle('-translate-x-full'); ov.classList.toggle('hidden'); };
+    document.getElementById('menu-btn').onclick = toggle; ov.onclick = toggle;
+    // Tandai menu aktif sesuai halaman (add/edit produk ikut menu Products)
+    const page = location.pathname.split('/').pop();
+    const parent = { 'add-produk.html': 'products.html', 'edit-produk.html': 'products.html' };
+    document.querySelectorAll('.nav-link').forEach(a => a.getAttribute('href') === (parent[page] || page) && a.classList.add('active'));
+  </script>
+</body>
+</html>
