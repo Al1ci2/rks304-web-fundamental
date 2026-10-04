@@ -1,0 +1,17 @@
+{
+    "target_host": "127.0.10.1",
+    "target_ip": "127.0.10.1",
+    "port_range": {
+        "start": 4,
+        "end": 43
+    },
+    "scan_time": "2026-10-04 19:46:38",
+    "total_open_ports": 1,
+    "open_ports": [
+        {
+            "port": 21,
+            "status": "OPEN",
+            "estimated_service": "FTP"
+        }
+    ]
+}
